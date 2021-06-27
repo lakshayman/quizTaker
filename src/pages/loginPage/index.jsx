@@ -17,6 +17,7 @@ class LoginPage extends React.Component{
                                 <input type="text" name="" placeholder="Username"/> 
                                 <input type="password" name="" placeholder="Password"/> 
                                 <a class="forgot text-muted" href="#">Forgot password?</a> 
+                                <a class="forgot text-muted" href="#">Register Here</a>
                                 <input type="submit" name="" value="Login" href="#"/>
                             </form>
                         </div>

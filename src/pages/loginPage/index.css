@@ -71,5 +71,7 @@ body {
 }
 
 .forgot {
-    text-decoration: underline
+    text-decoration: underline;
+    display: block;
+    text-align: center;
 }
