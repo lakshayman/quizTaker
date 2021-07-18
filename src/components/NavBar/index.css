@@ -1,0 +1,18 @@
+.color
+{	
+    background-color: lightseagreen; 
+}
+.textcolor
+{
+    color: #fff !important;
+    font-weight: 600;
+}
+.ho:hover{
+    color: grey !important;
+}
+.si{
+    font-size: xx-large;
+}
+.si:hover{
+    transform: scale(1.1) !important;
+}

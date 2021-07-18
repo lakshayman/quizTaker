@@ -1,0 +1,75 @@
+.lname{
+    font-weight: 900;
+}  
+.louter-container{
+  background-image: url('../../images/bg.jpg');
+  min-height: 100vh;
+}
+
+#lheading:hover {
+  color: black;
+}
+#lbutton:hover {
+    background-color: black;
+  }
+  
+  #lbutton {
+    /* height: 8%;
+    width: 30%; */
+    position: relative;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-family: cursive;
+    font-style: bold;
+    color: lightseagreen;
+    background-color: white;
+  }
+  #lemail {
+    /* height: 8%;
+    width: 60%; */
+    position: relative;
+    border-radius: 15px;
+    border: 5px;
+    outline: none;
+    background-color: white;
+    text-align: center;
+  }
+  #lpass {
+    /* height: 8%;
+    width: 60%; */
+    position: relative;
+    border-radius: 15px;
+    border: 5px;
+    outline: none;
+    background-color: white;
+    text-align: center;
+  }
+  #lform {
+    position: absolute;
+    /* height: 40%;
+    width: 50%; */
+    padding: 1%;
+    border-radius: 60px;
+    background-color: lightseagreen;
+    box-shadow: 5px 10px #888888;
+  }
+
+  #lheading {
+    text-align: center;
+    position: relative;
+    /* top: 10px; */
+    color: white;
+    font-family: cursive;
+  }
+  ::placeholder {
+    color: black;
+    font-style: bold;
+    text-align: center;
+  }
+  /* @media screen and (max-width: 375px){
+    #lform{
+        height:35%;
+        width: 95%;
+    }
+} */
