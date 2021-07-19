@@ -13,9 +13,16 @@
     background-color: black;
   }
   
+  #lbutton:disabled{
+    color: grey;
+  }
+
+  #lbutton[disabled]:hover{
+    background-color: white;
+  }
   #lbutton {
-    /* height: 8%;
-    width: 30%; */
+    /* height: 8%; */
+    width: 70%;
     position: relative;
     border-radius: 30px;
     border: none;
