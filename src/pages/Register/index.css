@@ -20,6 +20,12 @@
     color: lightseagreen;
     background-color: white;
   }
+  #rbutton:disabled{
+    color: grey;
+  }
+  #rbutton[disabled]:hover{
+    background-color: white;
+  }
   #rname {
     /* height: 8%; */
     width: 60%;

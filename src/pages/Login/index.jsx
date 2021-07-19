@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
-var mailformat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var mailformat = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 function LoginPage(){
   const [loginData, setLoginData] = useState({
     lemail: "",
