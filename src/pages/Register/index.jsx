@@ -1,5 +1,6 @@
 import './index.css';
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 var mailformat = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 function RegisterPage(){
   const [registerData, setregisterData] = useState({
@@ -151,6 +152,10 @@ function RegisterPage(){
         required
         class="my-2 form-control form-control-lg"
       />
+
+      <p className="grey-text text-darken-1">
+        <Link to="/" >Have an account? </Link>  
+      </p> 
 
       <input
         id="rbutton"

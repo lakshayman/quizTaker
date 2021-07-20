@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 import './index.css';
 var mailformat = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 function LoginPage(){
@@ -71,6 +72,10 @@ function LoginPage(){
       />
       {isError && <p style={{color: "brown"}}>E-Mail/Password is Wrong</p>}
 
+      <p className="grey-text text-darken-1">
+        <Link to="/register" >Don't have an account? </Link>  
+      </p> 
+
       <input
         id="lbutton"
         type="button"
@@ -79,6 +84,7 @@ function LoginPage(){
         onClick={handleSubmit}
         className="my-2 form-control form-control-lg"
       />
+      
     
     </div>
     </div>
