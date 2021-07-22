@@ -7,14 +7,20 @@ Go to: https://github.com/lakshayman/quizTakerBackend
 
 ## Installing quizTaker on your PC
 
-### Steps to install quizTaker:
+### Steps to install quizTaker front-end:
 1) Create a parent folder called 'QUIZTAKER' in preferred location.
 2) Fork the quizTaker from the repository: https://github.com/lakshayman/quizTaker
 3) Copy the HTTPS link of code from the repository.
 4) Open VS Code and open QUIZTAKER folder in VS Code.
 5) Go to View -> Command Palette.
 6) Enter Clone in search and select Git clone option.
-7) Now paste the HTT 
+7) Now paste the HTTPS link in the search bar.
+8) After download, Go to Terminal -> New Terminal.
+9) Enter Command "cd quizTaker".
+10) Enter Command "npm install" to install deoendencies.
+11) Wait for task to complete.
+12) Enter Command "npm start" to run the app.
+13) To install back-end, visit the given link: xyz
 
 ## Available Scripts
 
