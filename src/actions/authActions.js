@@ -5,7 +5,7 @@ import {
   GET_ERRORS,
   SET_CURRENT_USER,
   USER_LOADING
-} from "./types";
+} from "../Constants";
 
 export const loginUser = userData => dispatch => {
   axios
