@@ -6,6 +6,8 @@ online quizzes with an easy.
 
 ## Installing quizTaker on your PC
 
+### Steps to install quizTaker:
+1) Fork the quizTaker from the given repository.
 
 ## Available Scripts
 
