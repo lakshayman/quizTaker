@@ -3,15 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
-class Dashboard extends Component {
+function Dashboard(props) {
 
   onLogoutClick = e => {
     e.preventDefault();
-    this.props.logoutUser();
+    props.logoutUser();
   };
-
-  render() {
-    const { user } = this.props.auth;
+    const { user } = props.auth;
     console.log(user);
 return (
   <div>
@@ -19,7 +17,7 @@ return (
     <button onClick={this.onLogoutClick}></button>
   </div>
 );
-  }
+  
 }
 Dashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
