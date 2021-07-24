@@ -1,8 +1,9 @@
 import './index.css';
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 var mailformat = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 function RegisterPage(){
+  const history = useHistory();
   const [registerData, setregisterData] = useState({
     rname: "",
     role: "",
@@ -86,7 +87,10 @@ function RegisterPage(){
       setregisterData((prev)=>({...prev, [event.target.id]: event.target.value}));
     }
     const handleSubmit = ()=>{
-      console.log(registerData);
+      axios
+        .post("http://localhost:8000/api/register", registerData);
+        alert("You have successfully registered.");
+        history.push("/");
     }
     return (
         <div class="container-fluid router-container align-items-center d-flex justify-content-center">
