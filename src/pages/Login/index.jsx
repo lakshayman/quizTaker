@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import './index.css';
+import {connect, useDispatch} from 'react-redux'
+import {loginUser} from '../../actions/authActions'
 var mailformat = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 function LoginPage(){
   const [loginData, setLoginData] = useState({
@@ -10,6 +12,7 @@ function LoginPage(){
   const [isEmailCorrect, setEmailCorrect] = useState(false);
   const [isPassCorrect, setPassCorrect] = useState(false);
   const [isError, setError] = useState(false);
+  const dispatch = useDispatch();
 
   const checkValidity = (event)=>{
     if(event.target.id === "lemail"){
@@ -44,8 +47,7 @@ function LoginPage(){
   }
 
   const handleSubmit = ()=>{
-    setError(true);
-    console.log(loginData);
+    dispatch(loginUser(loginData));
   }
     return (
         <div className="container-fluid louter-container align-items-center flex-column d-flex justify-content-center">
@@ -91,4 +93,15 @@ function LoginPage(){
     );
 }
 
-export default LoginPage;
+function mapStateToProps(state){
+  return{
+    auth : state.auth,
+    error : state.error
+  };
+}
+
+const mapDispatchToProps = {
+  loginUser
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginPage);
