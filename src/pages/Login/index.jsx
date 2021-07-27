@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 import { connect, useDispatch } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 var mailformat = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-function LoginPage() {
+function LoginPage(props) {
   const [loginData, setLoginData] = useState({
     lemail: "",
     lpass: "",
@@ -12,7 +12,20 @@ function LoginPage() {
   const [isEmailCorrect, setEmailCorrect] = useState(false);
   const [isPassCorrect, setPassCorrect] = useState(false);
   const [isError, setError] = useState(false);
+  const [errors, setErr] = useState([]);
   const dispatch = useDispatch();
+
+  useEffect(()=>{
+    if(props.auth.isAuthenticated){
+      props.history.push("/dashboard")
+    }
+  },[])
+
+  useEffect(()=>{
+    if(props.auth.isAuthenticated){
+      props.history.push("/dashboard")
+    }
+  },[props.auth])
 
   const checkValidity = (event) => {
     if (event.target.id === "lemail") {
@@ -47,8 +60,13 @@ function LoginPage() {
     }));
   };
 
+  const setErrorTrue = (err)=>{
+    setErr(err.errors);
+    setError(true);
+  }
+
   const handleSubmit = () => {
-    dispatch(loginUser(loginData));
+    dispatch(loginUser({emailid: loginData.lemail, password: loginData.lpass}, setErrorTrue));
   };
   return (
     <div className="container-fluid louter-container align-items-center flex-column d-flex justify-content-center">
@@ -78,8 +96,10 @@ function LoginPage() {
           required
           className="my-2 form-control form-control-lg"
         />
-        {isError && <p style={{ color: "brown" }}>E-Mail/Password is Wrong</p>}
-
+        {isError && errors.map((err)=>{
+          let [key, val] = Object.entries(err)[0];
+          return <p key={key} style={{ color: "brown" }}>{key} {val}</p>
+        })}
         <p className="grey-text text-darken-1">
           <Link to="/register">Don't have an account? </Link>
         </p>

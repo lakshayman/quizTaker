@@ -2,12 +2,10 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import {
-  GET_ERRORS,
   SET_CURRENT_USER,
-  USER_LOADING
 } from "../Constants";
 
-export const loginUser = userData => dispatch => {
+export const loginUser = (userData, setErrorTrue) => dispatch => {
   axios
     .post("http://localhost:8000/api/login", userData)
     .then(res => {
@@ -17,11 +15,10 @@ export const loginUser = userData => dispatch => {
       const decoded = jwt_decode(token);
       dispatch(setCurrentUser(decoded));
     })
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
+    .catch(err =>{
+      setErrorTrue(err.response.data)
+      console.log(err.response.data);
+    }
     );
 };
 
@@ -29,12 +26,6 @@ export const setCurrentUser = decoded => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded
-  };
-};
-
-export const setUserLoading = () => {
-  return {
-    type: USER_LOADING
   };
 };
 

@@ -5,7 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 
 function Dashboard(props) {
 
-  onLogoutClick = e => {
+  const onLogoutClick = e => {
     e.preventDefault();
     props.logoutUser();
   };
@@ -14,7 +14,7 @@ function Dashboard(props) {
 return (
   <div>
     {user.role === "TEACHER"?(<div>Teacher</div>):(<div>Student</div>)}
-    <button onClick={this.onLogoutClick}></button>
+    <button onClick={onLogoutClick}></button>
   </div>
 );
   

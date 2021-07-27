@@ -16,11 +16,6 @@ import {
           isAuthenticated: !isEmpty(action.payload),
           user: action.payload
         };
-      case USER_LOADING:
-        return {
-          ...state,
-          loading: true
-        };
       default:
         return state;
     }

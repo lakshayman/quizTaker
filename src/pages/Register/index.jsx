@@ -1,4 +1,5 @@
 import './index.css';
+import axios from 'axios';
 import React, { useState } from 'react';
 import {Link, useHistory} from 'react-router-dom';
 var mailformat = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
@@ -88,9 +89,21 @@ function RegisterPage(){
     }
     const handleSubmit = ()=>{
       axios
-        .post("http://localhost:8000/api/register", registerData);
-        alert("You have successfully registered.");
-        history.push("/");
+        .post("http://localhost:8000/api/register", {
+          name: registerData.rname,
+          emailid: registerData.remail,
+          role: registerData.role,
+          password: registerData.rpass, 
+          password_confirmation: registerData.rcpass
+        })
+        .then(res => {
+          alert(`Hi ${res.data.result.name}. You have successfully registered.`);
+          history.push("/");
+        })
+        .catch(err =>{
+          alert(err);
+        })
+        
     }
     return (
         <div class="container-fluid router-container align-items-center d-flex justify-content-center">
