@@ -7,7 +7,6 @@ function RegisterPage(){
   const history = useHistory();
   const [registerData, setregisterData] = useState({
     rname: "",
-    role: "",
     remail: "",
     rpass: "",
     rcpass: "",
@@ -15,7 +14,6 @@ function RegisterPage(){
   const [isLoading, setLoading] = useState(false);
     const [isNameCorrect, setNameCorrect] = useState(false);
     const [isEmailCorrect, setEmailCorrect] = useState(false);
-    const [isRoleCorrect, setRoleCorrect] = useState(false);
     const [ispassCorrect, setPassCorrect] = useState(false);
     const [isConfirm, setConfirm] = useState(false);
     const checkValidity = (event)=>{
@@ -28,20 +26,6 @@ function RegisterPage(){
           event.target.style.border="solid";
           event.target.style.borderColor = "lightgreen";
           setNameCorrect(true);
-        }
-      }else if(event.target.id === "role"){
-        if(event.target.value.length === 0){
-          event.target.style.border = "none";
-          setRoleCorrect(false);
-        }
-        else if(event.target.value.toLowerCase() === "student" || event.target.value.toLowerCase() === "teacher"){
-          event.target.style.border="solid";
-          event.target.style.borderColor = "lightgreen";
-          setRoleCorrect(true);
-        }else{
-          event.target.style.border="solid";
-          event.target.style.borderColor = "red";
-          setRoleCorrect(false);
         }
       }else if(event.target.id === "remail"){
         if(event.target.value.length === 0){
@@ -94,7 +78,6 @@ function RegisterPage(){
         .post("http://localhost:8000/api/register", {
           name: registerData.rname,
           emailid: registerData.remail,
-          role: registerData.role,
           password: registerData.rpass, 
           password_confirmation: registerData.rcpass
         })
@@ -121,20 +104,6 @@ function RegisterPage(){
           required
           className="my-2 form-control form-control-lg"
         />
-
-        <input
-          id="role"
-          type="text"
-          onChange={change}
-          placeholder="Enter Role*"
-          list="Roles"
-          required
-          className="my-2 form-control form-control-lg"
-        />
-        <datalist id="Roles">
-          <option value="Student"></option>
-          <option value="Teacher"></option>
-        </datalist>
 
         <input
           id="remail"
@@ -170,7 +139,7 @@ function RegisterPage(){
         <input
           id="rbutton"
           type="button"
-          disabled = {!isConfirm || !isNameCorrect || !isRoleCorrect || !isEmailCorrect || !ispassCorrect}
+          disabled = {!isConfirm || !isNameCorrect || !isEmailCorrect || !ispassCorrect}
           onClick={handleSubmit}
           value="SUBMIT"
           className="my-2 form-control form-control-lg"
