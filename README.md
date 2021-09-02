@@ -1,7 +1,6 @@
 # Getting Started with QUIZ TAKER
 
-This project was created by `Lakshay Manchanda`, `Rahul Goyal`, `Tushar Gupta` 
-with `React` app. Its purpose is to provide a begginer-friendly platform to set-up and attempt
+This project's purpose is to provide a begginer-friendly platform to set-up and attempt
 online quizzes with an easy. This is the front-end part of quizTaker, to install the back-end
 Go to: https://github.com/lakshayman/quizTakerBackend
 
