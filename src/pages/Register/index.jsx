@@ -12,6 +12,7 @@ function RegisterPage(){
     rpass: "",
     rcpass: "",
   });
+  const [isLoading, setLoading] = useState(false);
     const [isNameCorrect, setNameCorrect] = useState(false);
     const [isEmailCorrect, setEmailCorrect] = useState(false);
     const [isRoleCorrect, setRoleCorrect] = useState(false);
@@ -88,6 +89,7 @@ function RegisterPage(){
       setregisterData((prev)=>({...prev, [event.target.id]: event.target.value}));
     }
     const handleSubmit = ()=>{
+      setLoading(true);
       axios
         .post("http://localhost:8000/api/register", {
           name: registerData.rname,
@@ -106,84 +108,75 @@ function RegisterPage(){
         
     }
     return (
-        <div class="container-fluid router-container align-items-center d-flex justify-content-center">
-      <div id="rform" class="d-flex justify-content-center flex-column align-items-center">
-        <h2 id="rheading" class="my-2  position-static justify-content-center">REGISTERATION FOR QUIZ TAKER</h2>
+      <div className="container-fluid router-container align-items-center d-flex justify-content-center">
+        {isLoading && <div className="loading"></div>}
+        <div id="rform" className="d-flex justify-content-center flex-column align-items-center">
+          <h2 id="rheading" className="my-2  position-static justify-content-center">REGISTERATION FOR QUIZ TAKER</h2>
 
-      <input
-        id="rname"
-        type="text"
-        onChange={change}
-        placeholder="Enter Full Name*"
-        onfocus="this.placeholder = ''"
-        onblur="this.placeholder = 'Enter Full Name*'"
-        required
-        class="my-2 form-control form-control-lg"
-      />
+        <input
+          id="rname"
+          type="text"
+          onChange={change}
+          placeholder="Enter Full Name*"
+          required
+          className="my-2 form-control form-control-lg"
+        />
 
-      <input
-        id="role"
-        type="text"
-        onChange={change}
-        placeholder="Enter Role*"
-        onfocus="this.placeholder = ''"
-        onblur="this.placeholder = 'Enter Role*'"
-        list="Roles"
-        required
-        class="my-2 form-control form-control-lg"
-      />
-      <datalist id="Roles">
-        <option value="Student"></option>
-        <option value="Teacher"></option>
-      </datalist>
+        <input
+          id="role"
+          type="text"
+          onChange={change}
+          placeholder="Enter Role*"
+          list="Roles"
+          required
+          className="my-2 form-control form-control-lg"
+        />
+        <datalist id="Roles">
+          <option value="Student"></option>
+          <option value="Teacher"></option>
+        </datalist>
 
-      <input
-        id="remail"
-        type="email"
-        onChange={change}
-        placeholder="Enter Email Id*"
-        onfocus="this.placeholder = ''"
-        onblur="this.placeholder = 'Enter Email Id*'"
-        required
-        class="my-2 form-control form-control-lg"
-      />
+        <input
+          id="remail"
+          type="email"
+          onChange={change}
+          placeholder="Enter Email Id*"
+          required
+          className="my-2 form-control form-control-lg"
+        />
 
-      <input
-        id="rpass"
-        type="password"
-        onChange={change}
-        placeholder="Enter Password*"
-        onfocus="this.placeholder = ''"
-        onblur="this.placeholder = 'Enter Password*'"
-        required
-        class="my-2 form-control form-control-lg"
-      />
+        <input
+          id="rpass"
+          type="password"
+          onChange={change}
+          placeholder="Enter Password*"
+          required
+          className="my-2 form-control form-control-lg"
+        />
 
-      <input
-        id="rcpass"
-        type="password"
-        placeholder="Enter Password Again*"
-        onChange={change}
-        onfocus="this.placeholder = ''"
-        onblur="this.placeholder = 'Enter Password Again*'"
-        required
-        class="my-2 form-control form-control-lg"
-      />
+        <input
+          id="rcpass"
+          type="password"
+          placeholder="Enter Password Again*"
+          onChange={change}
+          required
+          className="my-2 form-control form-control-lg"
+        />
 
-      <p className="grey-text text-darken-1">
-        <Link to="/" >Have an account? </Link>  
-      </p> 
+        <p className="grey-text text-darken-1">
+          <Link to="/" >Have an account? </Link>  
+        </p> 
 
-      <input
-        id="rbutton"
-        type="button"
-        disabled = {!isConfirm || !isNameCorrect || !isRoleCorrect || !isEmailCorrect || !ispassCorrect}
-        onClick={handleSubmit}
-        value="SUBMIT"
-        class="my-2 form-control form-control-lg"
-      />
+        <input
+          id="rbutton"
+          type="button"
+          disabled = {!isConfirm || !isNameCorrect || !isRoleCorrect || !isEmailCorrect || !ispassCorrect}
+          onClick={handleSubmit}
+          value="SUBMIT"
+          className="my-2 form-control form-control-lg"
+        />
+        </div>
       </div>
-    </div>
     );
 }
 export default RegisterPage;

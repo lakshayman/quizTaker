@@ -5,14 +5,26 @@
 .textcolor
 {
     color: #fff !important;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 .ho:hover{
-    color: grey !important;
+    color: black !important;
 }
 .si{
-    font-size: xx-large;
+    font-size: 2rem;
 }
 .si:hover{
     transform: scale(1.1) !important;
+}
+.nbutton{
+    background-color: transparent;
+    border-radius: 15%;
+    border: solid;
+    color: #fff;
+    border-color: black;
+}
+.nbutton:hover{
+    color: black;
+    border-color: #fff;
 }
